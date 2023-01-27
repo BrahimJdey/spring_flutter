@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.iscae.Planification_Emploi_Temps.data.Models.Filiere">
+        <table name="filiere" schema="emploi" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="nom">
+                <column name="nom" length="50"/>
+            </basic>
+            <basic name="niveau">
+                <column name="niveau" length="10"/>
+            </basic>
+            <basic name="anne">
+                <column name="anne" length="50"/>
+            </basic>
+            <basic name="semestre">
+                <column name="Semestre" nullable="false" precision="1"/>
+            </basic>
+            <basic name="semestreDebit">
+                <column name="Semestre_Debit" nullable="false" length="15"/>
+            </basic>
+            <basic name="semestreFin">
+                <column name="Semestre_Fin" nullable="false" length="15"/>
+            </basic>
+            <one-to-many name="matieresById" mapped-by="filiereByFiliere"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Matiere"/>
+        </attributes>
+    </entity>
+</entity-mappings>

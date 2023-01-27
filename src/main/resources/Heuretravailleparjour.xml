@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.iscae.Planification_Emploi_Temps.data.Models.Heuretravailleparjour">
+        <table name="heuretravailleparjour" schema="emploi" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="jour">
+                <column name="jour" length="10"/>
+            </basic>
+            <basic name="debit">
+                <column name="debit" precision="-1"/>
+            </basic>
+            <basic name="fin">
+                <column name="fin" precision="-1"/>
+            </basic>
+            <basic name="professeur">
+                <column name="professeur" precision="-1"/>
+            </basic>
+            <many-to-one name="professeurByProfesseur" optional="true"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Professeur">
+                <join-column name="professeur" referenced-column-name="id"/>
+            </many-to-one>
+            <one-to-many name="coursById" mapped-by="heuretravailleparjourByProfesseurheure"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Cours"/>
+        </attributes>
+    </entity>
+</entity-mappings>

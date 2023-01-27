@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.iscae.Planification_Emploi_Temps.data.Models.Salle">
+        <table name="salle" schema="emploi" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="numero">
+                <column name="numero" precision="-1"/>
+            </basic>
+            <basic name="place">
+                <column name="place" precision="-1"/>
+            </basic>
+            <one-to-many name="coursById" mapped-by="salleBySalle"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Cours"/>
+        </attributes>
+    </entity>
+</entity-mappings>

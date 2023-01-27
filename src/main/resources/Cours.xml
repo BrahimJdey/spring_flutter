@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="com.iscae.Planification_Emploi_Temps.data.Models.Cours">
+        <table name="cours" schema="emploi" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="courstype">
+                <column name="courstype" length="10"/>
+            </basic>
+            <basic name="matiere">
+                <column name="matiere" precision="-1"/>
+            </basic>
+            <basic name="professeurheure">
+                <column name="professeurheure" precision="-1"/>
+            </basic>
+            <basic name="salle">
+                <column name="salle" precision="-1"/>
+            </basic>
+            <many-to-one name="matiereByMatiere" optional="true"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Matiere">
+                <join-column name="matiere" referenced-column-name="id"/>
+            </many-to-one>
+            <many-to-one name="heuretravailleparjourByProfesseurheure" optional="true"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Heuretravailleparjour">
+                <join-column name="professeurheure" referenced-column-name="id"/>
+            </many-to-one>
+            <many-to-one name="salleBySalle" optional="true"
+                         target-entity="com.iscae.Planification_Emploi_Temps.data.Models.Salle">
+                <join-column name="salle" referenced-column-name="id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>
