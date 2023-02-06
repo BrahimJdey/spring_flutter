@@ -28,7 +28,7 @@ public class Heuretravailleparjour {
     @JsonIgnore
     @OneToMany(mappedBy = "heuretravailleparjourByProfesseurheure")
     private Collection<Cours> coursById;
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "professeur", referencedColumnName = "id", nullable = false,updatable = false,insertable = false)
     private Professeur professeurByProfesseur;

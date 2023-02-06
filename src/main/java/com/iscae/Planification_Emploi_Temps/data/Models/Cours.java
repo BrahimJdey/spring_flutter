@@ -23,7 +23,7 @@ public class Cours {
     @Basic
     @Column(name = "salle", nullable = false)
     private int salle;
-@JsonIgnore
+ @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "matiere", referencedColumnName = "id", nullable = false,updatable = false,insertable = false)
     private Matiere matiereByMatiere;
@@ -31,7 +31,7 @@ public class Cours {
     @ManyToOne
     @JoinColumn(name = "professeurheure", referencedColumnName = "id", nullable = false,updatable = false,insertable = false)
     private Heuretravailleparjour heuretravailleparjourByProfesseurheure;
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "salle", referencedColumnName = "id", nullable = false,updatable = false,insertable = false)
     private Salle salleBySalle;

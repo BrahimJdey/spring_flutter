@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="https://jakarta.ee/xml/ns/persistence/orm"
+                 version="3.0">
+
+    <entity class="iscae.com.planification_temps_backend.login.data.Role">
+        <table name="rolle" schema="emploi" catalog=""/>
+        <attributes>
+            <id name="id">
+                <column name="id" precision="-1"/>
+            </id>
+            <basic name="userid">
+                <column name="userid" precision="-1"/>
+            </basic>
+            <basic name="nom">
+                <column name="nom" length="20"/>
+            </basic>
+            <many-to-one name="userByUserid" optional="true"
+                         target-entity="iscae.com.planification_temps_backend.login.data.User">
+                <join-column name="userid" referenced-column-name="id"/>
+            </many-to-one>
+        </attributes>
+    </entity>
+</entity-mappings>

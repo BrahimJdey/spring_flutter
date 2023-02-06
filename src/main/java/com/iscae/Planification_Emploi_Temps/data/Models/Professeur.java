@@ -1,5 +1,6 @@
 package com.iscae.Planification_Emploi_Temps.data.Models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -19,6 +20,7 @@ public class Professeur {
     @Basic
     @Column(name = "email", nullable = true, length = 50)
     private String email;
+    @JsonIgnore
     @OneToMany(mappedBy = "professeurByProfesseur")
     private Collection<Heuretravailleparjour> heuretravailleparjoursById;
 
